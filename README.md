@@ -8,7 +8,7 @@ a fully-integrated micro stepping motor driver used to control stepper motors by
 of high-end motion control commands received through SPI. It is capable of driving one 
 or two stepper motors when plugged into an STM32 Nucleo board.
 
-# Examples
+## Examples
 
 There is 1 example with the X-NUCLEO-IHM02A1 library.
 * X_NUCLEO_IHM02A1_HelloWorld: This application provides a simple example of usage of the X-NUCLEO-IHM02A1 
