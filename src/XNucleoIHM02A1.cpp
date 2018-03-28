@@ -70,7 +70,7 @@ uint8_t XNucleoIHM02A1::number_of_boards = 0;
  * @param ssel          pin name of the SSEL pin of the SPI device to be used for communication.
  * @param spi           SPI device to be used for communication.
  */
-XNucleoIHM02A1::XNucleoIHM02A1(L6470_init_t *init_0, L6470_init_t *init_1, uint8_t flag_irq, uint8_t busy_irq, uint8_t standby_reset, uint8_t ssel, SPIClass *spi) : dev_spi(spi)
+XNucleoIHM02A1::XNucleoIHM02A1(L6470_init_t *init_0, L6470_init_t *init_1, uint8_t flag_irq, uint8_t busy_irq, uint8_t standby_reset, uint8_t ssel, SPIClass *spi) : standby_reset(standby_reset), dev_spi(spi)
 {
     /* Checking stackability. */
     if (!(number_of_boards < EXPBRD_MOUNTED_NR_MAX)) {
@@ -119,7 +119,7 @@ XNucleoIHM02A1::XNucleoIHM02A1(L6470_init_t *init_0, L6470_init_t *init_1, uint8
  * @param miso          pin name of the MISO pin of the SPI device to be used for communication.
  * @param sclk          pin name of the SCLK pin of the SPI device to be used for communication.
  */
-XNucleoIHM02A1::XNucleoIHM02A1(L6470_init_t *init_0, L6470_init_t *init_1, uint8_t flag_irq, uint8_t busy_irq, uint8_t standby_reset, uint8_t ssel, uint8_t mosi, uint8_t miso, uint8_t sclk)
+XNucleoIHM02A1::XNucleoIHM02A1(L6470_init_t *init_0, L6470_init_t *init_1, uint8_t flag_irq, uint8_t busy_irq, uint8_t standby_reset, uint8_t ssel, uint8_t mosi, uint8_t miso, uint8_t sclk) : standby_reset(standby_reset)
 {
     /* Checking stackability. */
     if (!(number_of_boards < EXPBRD_MOUNTED_NR_MAX)) {
@@ -167,6 +167,18 @@ bool XNucleoIHM02A1::init(void)
      * Example:                                                               *
      *   return (init_COMPONENT_1() && init_COMPONENT_2());                   *
      *------------------------------------------------------------------------*/
+    /* Disable the L6470. */
+    digitalWrite(standby_reset, 0);
+
+    /* Wait for at least t_STBY,min */
+    delay(1);
+
+    /* Enable the L6470. */
+    digitalWrite(standby_reset, 1);
+
+    /* Wait for at least t_logicwu */
+    delay(1);
+
     return (init_L6470_0() && init_L6470_1());
 }
 

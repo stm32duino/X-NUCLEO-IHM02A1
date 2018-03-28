@@ -1247,6 +1247,21 @@ public:
         attachInterrupt(busy_irq, fptr, FALLING);
     }
 
+    /*
+     * Puts the device in standby mode.
+     */
+    void L6470_ENABLE(void)
+    {
+        digitalWrite(standby_reset, 1);
+    }
+
+    /*
+     * Puts the device in reset mode.
+     */
+    void L6470_DISABLE(void)
+    {
+        digitalWrite(standby_reset, 0);
+    }
 
 protected:
 
@@ -1410,21 +1425,6 @@ protected:
      * Implement here other I/O methods beyond those already implemented      *
      * above, which are declared extern within the component's header file.   *
      *------------------------------------------------------------------------*/
-    /*
-     * Puts the device in standby mode.
-     */
-    void L6470_ENABLE(void)
-    {
-        digitalWrite(standby_reset, 1);
-    }
-
-    /*
-     * Puts the device in reset mode.
-     */
-    void L6470_DISABLE(void)
-    {
-        digitalWrite(standby_reset, 0);
-    }
 
     /*
      * Write and read bytes to/from the component through the SPI at the same time.

@@ -217,6 +217,9 @@ protected:
 
     /* Static data. */
     static uint8_t number_of_boards;
+
+    /* Standby/reset pin. */
+    uint8_t standby_reset;
 };
 
 #endif /* __X_NUCLEO_IHM02A1_CLASS_H */

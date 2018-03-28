@@ -1390,12 +1390,6 @@ uint8_t *L6470::L6470_GetRegisterName(uint8_t id)
   */
 status_t L6470::L6470_Config(void *init)
 {
-  /* Disable the L6470. */
-  L6470_DISABLE();
-
-  /* Enable the L6470. */
-  L6470_ENABLE();
-
   /* Reset devices. */
   reset_device();
 
