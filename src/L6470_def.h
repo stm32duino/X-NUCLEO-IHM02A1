@@ -290,22 +290,6 @@ typedef struct
  * @{
  */
 
-/* ACTION --------------------------------------------------------------------*
- * Declare here extern platform-dependent APIs you might need (e.g.: I/O and  *
- * interrupt related functions), and implement them in a glue-logic file on   *
- * the target environment, for example within the "x_nucleo_board.c" file.    *
- * E.g.:                                                                      *
- *   extern status_t COMPONENT_IO_Init (void *handle);                        *
- *   extern status_t COMPONENT_IO_Read (handle, buf, regadd, bytes);          *
- *   extern status_t COMPONENT_IO_Write(handle, buf, regadd, bytes);          *
- *   extern void     COMPONENT_IO_ITConfig(void);                             *
- *----------------------------------------------------------------------------*/
-extern void L6470_DISABLE(void);
-extern void L6470_ENABLE(void);
-extern void L6470_nCS_LOW(void);
-extern void L6470_nCS_HIGH(void);
-extern void L6470_SPI_Communication(uint8_t *pTxData, uint8_t *pRxData, uint16_t Size, uint32_t Timeout);
-
 #ifdef __cplusplus
 }
 #endif
