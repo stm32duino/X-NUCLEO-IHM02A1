@@ -69,14 +69,14 @@ uint8_t L6470::L6470_DaisyChainSpiRxStruct[L6470MAXSPICMDBYTESIZE][L6470DAISYCHA
   */
 const sL6470_Register_t L6470::_L6470_Register[L6470REGIDSIZE] = {
   {0x01 , "ABS_POS",   22, 3, 0x000000},  //!< Current position
-  {0x02 , "EL_POS",     9, 2, 0x000},     //!< Electrical position
+  {0x02 , "EL_POS",     9, 2, 0x0000},    //!< Electrical position
   {0x03 , "MARK",      22, 3, 0x000000},  //!< Mark position
-  {0x04 , "SPEED",     20, 3, 0x0000},    //!< Current speed
-  {0x05 , "ACCEL",       12, 2, 0x08A},     //!< Acceleration
-  {0x06 , "DECEL",       12, 2, 0x08A},     //!< Deceleration
-  {0x07 , "MAX_SPEED", 10, 2, 0x041},     //!< Maximum speed
-  {0x08 , "MIN_SPEED", 13, 2, 0x000},     //!< Minimum speed
-  {0x15 , "FS_SPD",    10, 2, 0x027},     //!< Full-step speed
+  {0x04 , "SPEED",     20, 3, 0x000000},  //!< Current speed
+  {0x05 , "ACCEL",     12, 2, 0x008A},    //!< Acceleration
+  {0x06 , "DECEL",     12, 2, 0x008A},    //!< Deceleration
+  {0x07 , "MAX_SPEED", 10, 2, 0x0041},    //!< Maximum speed
+  {0x08 , "MIN_SPEED", 13, 2, 0x0000},    //!< Minimum speed
+  {0x15 , "FS_SPD",    10, 2, 0x0027},    //!< Full-step speed
   {0x09 , "KVAL_HOLD",  8, 1, 0x29},      //!< Holding KVAL
   {0x0A , "KVAL_RUN",   8, 1, 0x29},      //!< Constant speed KVAL
   {0x0B , "KVAL_ACC",   8, 1, 0x29},      //!< Acceleration starting KVAL
@@ -85,11 +85,11 @@ const sL6470_Register_t L6470::_L6470_Register[L6470REGIDSIZE] = {
   {0x0E , "ST_SLP",     8, 1, 0x19},      //!< Start slope
   {0x0F , "FN_SLP_ACC", 8, 1, 0x29},      //!< Acceleration final slope
   {0x10 , "FN_SLP_DEC", 8, 1, 0x29},      //!< Deceleration final slope
-  {0x11 , "K_THERM",    4, 1, 0x0},       //!< Thermal compensation factor
+  {0x11 , "K_THERM",    4, 1, 0x00},      //!< Thermal compensation factor
   {0x12 , "ADC_OUT",    5, 1, 0x00},      //!< ADC output, (the reset value is according to startup conditions)
-  {0x13 , "OCD_TH",     4, 1, 0x8},       //!< OCD threshold
+  {0x13 , "OCD_TH",     4, 1, 0x08},      //!< OCD threshold
   {0x14 , "STALL_TH",   7, 1, 0x40},      //!< STALL threshold
-  {0x16 , "STEP_MODE",  8, 1, 0x7},       //!< Step mode
+  {0x16 , "STEP_MODE",  8, 1, 0x07},      //!< Step mode
   {0x17 , "ALARM_EN",   8, 1, 0xFF},      //!< Alarm enable
   {0x18 , "CONFIG",    16, 2, 0x2E88},    //!< IC configuration
   {0x19 , "STATUS",    16, 2, 0x0000}     //!< Status, (the reset value is according to startup conditions)
