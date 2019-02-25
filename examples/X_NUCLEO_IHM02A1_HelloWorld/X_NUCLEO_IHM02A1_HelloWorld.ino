@@ -139,6 +139,7 @@ void setup()
 {
     /*----- Initialization. -----*/
 
+    /* Please verify your board has these spi pins */
     /* Initializing SPI bus. */
     dev_spi = new SPIClass(D11, D12, D3);
     SerialPort.begin(115200);
